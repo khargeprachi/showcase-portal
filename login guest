@@ -1,0 +1,22 @@
+
+
+
+<?php
+$con = mysqli_connect("localhost","root","");
+if(!$con)
+{
+echo 'not connected to server';
+}
+if(!mysqli_select_db($con,'showcase'))
+{
+echo 'database not connected';
+}
+$Fullname = $_POST["name"];
+$Contact = $_POST['contact'];
+$sql = "INSERT INTO guest(Fullname,Contact) VALUES('$Fullname','$Contact')";
+$run_query=mysqli_query($con,$sql);
+{
+setcookie("name",$Fullname, time() + (86400 * 1), "/");
+header("refresh:2; url=guest.php");
+}
+?>
