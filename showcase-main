@@ -1,0 +1,193 @@
+<html>
+<head>
+<title>
+SHOWCASE
+</title>
+</head>
+
+
+<!--Initialising css folders-->
+<link rel="stylesheet" href="css/extra.css">
+<link rel="stylesheet" href="css/materialize.min.css">
+
+<!--Initialising javascript folders-->
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.min.1.js"></script>
+<script src="js/materialize.min.js"></script>
+
+<!--Initialising icon font-->
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!--Styling header tags-->
+<style>
+h1,h2,h3,h4,h5,h6{
+font-family:Freestyle Script
+}
+</style>
+<!--Initialisations end-->
+<body>
+
+<!--Navbar with tabs-->
+  <div id="nav" class="navbar row z-depth-2">
+  <nav style="height:13%;padding:1%" class="z-depth-2 light-blue darken-4">
+	<div class="center white-text " style="font-size:55px">SHOWCASE</div>
+  </nav>
+</div>
+<!--Navbar with tabs ends-->
+ 
+<div class="parallax-container">
+    <div class="parallax" style="">
+		<img src="blog.jpg"  style="background-size:100%;background-repeat:no-repeat">
+	</div>
+  </div>		
+	
+<!--Floating Button for Login and Sign up begins-->
+<div class="fixed-action-btn" style="bottom: 14px; right: 14px;">
+    <a class="btn-floating btn-large z-depth-3 light-blue darken-3">
+      <i class="large material-icons">check</i>
+    </a>
+    <ul>
+      <li><a class="btn-floating blue darken-1 tooltipped modal-trigger" data-position="left" data-delay="50" data-tooltip="Sign Up" href="#signup"><i class="large mdi-editor-insert-chart"></i></a></li>
+      <li><a class="btn-floating yellow darken-1 tooltipped modal-trigger" data-position="left" data-delay="50" data-tooltip="Login" href="#login"><i class="large mdi-editor-format-quote"></i></a></li>
+    </ul>
+</div>
+<!--Floating Button for Login and Sign up begins-->
+
+<!--Modal definition for Login and Sign-up begins-->
+<div id="login" class="modal">
+	<div class="modal-content center black-text">
+		<h2>Login</h2>
+		<form action="profile.php"method="post">
+			<div class="row">
+				<div class="input-field col s10 offset-s1">
+					<input type="text" id="id" name="email" class="validate" >
+					<label for="pn">Enter USERID</label>
+				</div>
+				<div class="input-field col s10 offset-s1">
+					<input type="password" id="pw" name="pwd" class="validate" >
+					<label for="pw">Enter Password</label>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<button class="btn large waves-effect waves-light col s2 offset-s5" type="submit" name="action">Submit
+				<i class="mdi-content-send right"></i>
+				</button>
+			</div>
+		</form>
+	</div>
+</div>
+<div id="signup" class="modal">
+	<div class="modal-content center black-text">
+		<h2>Sign Up</h2>
+               <ul>
+              <li><a class="waves-effect waves-light btn blue darken-1  modal-trigger"   href="#student">STUDENT</a></li>
+<br>              
+<li><a class="waves-effect waves-light btn yellow darken-1  modal-trigger"   href="#club">CLUBS/CHAPTER</a></li>
+               </ul>
+</div>
+</div>
+<div id="club" class="modal">
+         <div class="modal-content center black-text">
+		<h2>Club/Chapter Registration</h2>
+               <form action="profile.php"method="post" class="col s12" autocomplete="off">
+			<div class="row">
+				<div class="input-field col s10 offset-s1">
+					<input type="text" id="clubname" name="clubname" class="validate" >
+					<label for="name">Enter Club/Chapter Name</label>
+				</div>
+                                <div class="input-field col s10 offset-s1">
+					<input type="password" id="pw" name="pwd" class="validate" >
+					<label for="pw">Enter Password</label>
+				</div>
+                                  
+				<div class="input-field col s10 offset-s1">
+					<input type="number" id="contact" name="contact" class="validate" >
+					<label for="sp">Enter contact</label>
+				</div>
+                                <div class="input-field col s10 offset-s1">
+					<input type="text" id="obj" name="obj" class="validate" >
+					<label for="sp">Enter objective</label>
+				</div>
+                              
+                                
+			</div>
+			<br>
+			<div class="row">
+				<button class="btn large waves-effect waves-light col offset-s5" style="margin-top:3%" type="submit" name="action">Submit
+				<i class="mdi-content-send right"></i>
+				</button>
+			</div>
+		</form>
+	 </div>
+</div>
+<div id="student" class="modal">
+<div class="modal-content center black-text">
+<h2>Student Registration</h2>
+		<form action="insert.php" method="post" class="col s12" autocomplete="off">
+			<div class="row">
+				<div class="input-field col s10 offset-s1">
+					<input type="text" id="name" name="name" class="validate">
+					<label for="name">Enter FullName</label>
+				</div>
+                                <div class="input-field col s10 offset-s1">
+					<input type="password" id="pwd" name="pwd" class="validate">
+					<label for="pw">Enter Password</label>
+				</div>
+                                  <div class="input-field col s10 offset-s1">
+					<input type="text" id="regno" name="regno" class="validate"  >
+					<label for="pw">Enter Registration Number</label>
+				</div>
+				<div class="input-field col s10 offset-s1">
+					<input type="number" id="contact" name="contact" class="validate" >
+					<label for="sp">Enter contact</label>
+				</div>
+                                <div class="input-field col s10 offset-s1">
+					<input type="text" id="sp" name="sp" class="validate" >
+					<label for="sp">Enter specialization</label>
+				</div>
+                              
+                                <div class="input-field col s10 offset-s1">
+					<input type="text" id="email" name="email" class="validate" >
+					<label for="email">Enter Email ID</label>
+				</div>
+				
+			</div>
+			<br>
+			<div class="row">
+				<button class="btn large waves-effect waves-light col offset-s5" style="margin-top:3%" type="submit" name="action">Submit
+				<i class="mdi-content-send right"></i>
+				</button>
+			</div>
+		</form>
+
+	</div>
+</div>
+
+<!--Modal definition for Login and Sign-up ends-->
+
+
+<!--Footer begins-->
+<footer class="page-footer light-blue darken-4">
+          <div class="footer-copyright light-blue darken-4">
+            <div class="center">VIT UNIVERSITY </div>
+          </div>
+</footer>
+<!--Footer ends-->
+<!--Initialising parallax-->
+<script>
+$(document).ready(function(){
+      $('.parallax').parallax();
+    });
+</script>
+<!--Initialisations end-->
+
+<!--Initialising modal-->
+<script>
+$(document).ready(function()
+{
+    $('.modal-trigger').leanModal();
+  });
+</script>
+
+</body>
