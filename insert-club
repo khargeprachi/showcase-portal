@@ -1,0 +1,30 @@
+<?php
+$con = mysqli_connect("localhost","root","");
+if(!$con)
+{
+echo 'not connected to server';
+}
+if(!mysqli_select_db($con,'showcase'))
+{
+echo 'database not connected';
+}
+$name = $_POST['clubname'];
+$PASSWORD = $_POST['pwd'];
+
+$Contact = $_POST['contact'];
+$obj = $_POST['obj'];
+
+
+$sql = "INSERT INTO club(name,password,contact,objective) VALUES('$name','$PASSWORD','$Contact','$obj')";
+setcookie("name",$name, time() + (86400 * 1), "/");
+if(!mysqli_query($con,$sql))
+{
+echo 'not inserted';
+}
+else
+{
+echo 'inserted';
+}
+header("refresh:2; url=profilec.php");
+
+?>
