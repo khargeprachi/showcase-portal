@@ -1,0 +1,161 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>
+		PROFILE
+	</title>
+</head>
+<!--Initialising css folders-->
+<link rel="stylesheet" href="css/extra.css">
+<link rel="stylesheet" href="css/materialize.min.css">
+
+<!--Initialising javascript folders-->
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.min.1.js"></script>
+<script src="js/materialize.min.js"></script>
+
+<!--Initialising icon font-->
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!--Styling header tags-->
+<style>
+h1,h2,h3,h4,h5,h6{
+font-family:Freestyle Script
+}
+</style>
+<!--Initialisations end-->
+<body>
+<!--Navbar with tabs-->
+  <div id="nav" class="navbar row z-depth-2">
+  <nav style="height:13%;padding:1%" class="z-depth-2 light-blue darken-4">
+	<div class="center white-text " style="font-size:60px">PROFILE</div>
+  </nav>
+</div>
+<!--Navbar with tabs ends-->
+
+<?php
+$con = mysqli_connect("localhost","root","");
+if(!$con)
+{
+echo 'not connected to server';
+}
+
+if(!mysqli_select_db($con,'showcase'))
+{
+echo 'database not connected';
+}
+$name=$_COOKIE['name'];
+$queryf="select * from club where name='$name'";
+$run_query=mysqli_query($con,$queryf);
+$arrayq=mysqli_fetch_assoc($run_query);
+
+
+?>
+
+
+
+			<div class="row">
+				<h1>Club/Chapter Name:<?php echo $arrayq['name']; ?></h1>
+				</div>                              		
+                                 
+				 <h1>contact : <?php echo $arrayq['contact']; ?></h1>
+				</div>
+                                 <h1>Objective :<?php echo $arrayq['objective']; ?></h1>
+				</div>
+                              
+                                 
+				
+			</div>
+
+
+  <form action="upload.php" method="post" enctype="multipart/form-data">
+    <div class="file-field input-field">
+      <div class="btn">
+        <span>File</span>
+        <input type="file" multiple>
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text" placeholder="Upload one or more files">
+      </div>
+<input type="file" name="fileToUpload" id="fileToUpload">
+<div class="row">
+				<button class="btn large waves-effect waves-light col offset-s5" style="margin-top:3%" type="submit" name="action">Submit
+				<i class="mdi-content-send right"></i>
+				</button>
+			</div>
+    </div>
+  </form>
+<br>
+   
+<div class="fixed-action-btn" style="top: 16px; right: 14px;">
+ <i class="large material-icons" style="top: 16px; right: 14px;">search</i>     
+<form action="search.php" method="post">
+<div class="input-field col s10 offset-s1">
+					<input type="text" id="search" name="search" class="validate" >
+					<label for="name">Search Specialization</label>
+<button class="btn large waves-effect waves-light col offset-s5" style="margin-top:3%" type="submit" name="action">Submit
+				<i class="mdi-content-send right"></i>
+				</button>
+				</div>
+</form>
+</div>
+
+<div class="fixed-action-btn" style="bottom: 3px; left: 5px;">
+ <i class="large material-icons" style="bottom: 5px; left: 14px;">search</i>     
+<form action="search1.php" method="post">
+<div class="input-field col s10 offset-s1">
+					<input type="text" id="search" name="search" class="validate" >
+					<label for="name">Search Event</label>
+<button class="btn large waves-effect waves-light col offset-s5" style="margin-top:3%" type="submit" name="action">Submit
+				<i class="mdi-content-send right"></i>
+				</button>
+				</div>
+</form>
+</div>
+
+<div class="fixed-action-btn" style="bottom:5px ;right: 5px;">
+    <a class="btn-floating btn-large z-depth-3 light-blue darken-3">
+      <i class="large material-icons">check</i>
+    </a>
+
+<form action="event.php" method="post" >
+<div class="row">
+
+				<div class="input-field col s10 offset-s1">
+					<input type="text" id="name" name="name" class="validate" >
+					<label for="regno">Enter Event name</label>
+
+				</div>
+				<div class="input-field col s10 offset-s1">
+					<input type="date" id="date" name="date" class="validate" >
+					<label for="pwd">Enter Event Date</label>
+			
+</div>
+<div class="input-field col s10 offset-s1">
+					<input type="text" id="description" name="description" class="validate" >
+					<label for="pwd">Enter Event Description</label>
+			
+</div>
+<div class="input-field col s10 offset-s1">
+					<input type="text" id="required" name="required" class="validate" >
+					<label for="pwd">Enter your Requirements</label>
+			
+</div>
+			</div>
+			<br>
+			<div class="row">
+				<button class="btn large waves-effect waves-light col s2 offset-s5" type="submit" name="action">Submit
+				<i class="mdi-content-send right"></i>
+				</button>
+			</div>
+		</form>			
+			
+	</div>	
+<form action="sc.html" method="post">
+<button class="btn large waves-effect waves-light col offset-s10" style="margin-bottom:6%" type="submit" name="action">LOGOUT
+				<i class="mdi-content-send right"></i>
+				</button>
+ </form>
+</body>
+</html>
