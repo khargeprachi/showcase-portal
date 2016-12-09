@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>
+		PROFILE
+	</title>
+</head>
+<!--Initialising css folders-->
+<link rel="stylesheet" href="css/extra.css">
+<link rel="stylesheet" href="css/materialize.min.css">
+
+<!--Initialising javascript folders-->
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.min.1.js"></script>
+<script src="js/materialize.min.js"></script>
+
+<!--Initialising icon font-->
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!--Styling header tags-->
+<style>
+h1,h2,h3,h4,h5,h6{
+font-family:Freestyle Script
+}
+</style>
+<!--Initialisations end-->
+<body>
+<!--Navbar with tabs-->
+  <div id="nav" class="navbar row z-depth-2">
+  <nav style="height:13%;padding:1%" class="z-depth-2 light-blue darken-4">
+	<div class="center white-text " style="font-size:60px">PROFILE</div>
+  </nav>
+</div>
+<!--Navbar with tabs ends-->
+
+<?php
+$con = mysqli_connect("localhost","root","");
+if(!$con)
+{
+echo 'not connected to server';
+}
+
+if(!mysqli_select_db($con,'showcase'))
+{
+echo 'database not connected';
+}
+$regno=$_COOKIE['regno'];
+$queryf="select * from student where Regno='$regno'";
+$run_query=mysqli_query($con,$queryf);
+$arrayq=mysqli_fetch_assoc($run_query);
+
+
+?>
+
+
+
+			<div class="row">
+				<h1>FullName:<?php echo $arrayq['Fullname']; ?></h1>
+				</div>
+                                
+				
+                                 <h1>  Registration Number :<?php echo $arrayq['Regno']; ?></h1>
+				</div>
+				 <h1>contact : <?php echo $arrayq['Contact']; ?></h1>
+				</div>
+                                 <h1>specialization :<?php echo $arrayq['Specialization']; ?></h1>
+				</div>
+                              
+                                 <h1>Email ID :<?php echo $arrayq['Email']; ?></h1>
+				</div>
+				
+			</div>
+			
+			
+		
+
+
+  <form action="upload.php" method="post" enctype="multipart/form-data">
+    <div class="file-field input-field">
+      <div class="btn">
+        <span>File</span>
+        <input type="file" multiple>
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text" placeholder="Upload one or more files">
+      </div>
+<input type="file" name="fileToUpload" id="fileToUpload">
+<div class="row">
+				<button class="btn large waves-effect waves-light col offset-s5" style="margin-top:3%" type="submit" name="action">Submit
+				<i class="mdi-content-send right"></i>
+				</button>
+			</div>
+    </div>
+  </form>
+<br>
+<form action="sc.html" method="post">
+<button class="btn large waves-effect waves-light col offset-s5" style="margin-bottom:3%" type="submit" name="action">LOGOUT
+				<i class="mdi-content-send right"></i>
+				</button>
+ </form>
+
+<div class="fixed-action-btn" style="top: 16px; right: 14px;">
+ <i class="large material-icons" style="top: 16px; right: 14px;">search</i>     
+<form action="search.php" method="post">
+<div class="input-field col s10 offset-s1">
+					<input type="text" id="search" name="search" class="validate" >
+					<label for="name">Search Specialization</label>
+<button class="btn large waves-effect waves-light col offset-s5" style="margin-top:3%" type="submit" name="action">Submit
+				<i class="mdi-content-send right"></i>
+				</button>
+				</div>
+</form>
+</div>
+<div class="fixed-action-btn" style="bottom: 16px; right: 14px;">
+ <i class="large material-icons" style="top: 16px; right: 14px;">search</i>     
+<form action="search1.php" method="post">
+<div class="input-field col s10 offset-s1">
+					<input type="text" id="search" name="search" class="validate" >
+					<label for="name">Search Event</label>
+<button class="btn large waves-effect waves-light col offset-s5" style="margin-top:3%" type="submit" name="action">Submit
+				<i class="mdi-content-send right"></i>
+				</button>
+				</div>
+</form>
+</div>
+
+ 
+ 
+</body>
+</html>
