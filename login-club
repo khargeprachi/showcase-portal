@@ -1,0 +1,30 @@
+<?php
+$con = mysqli_connect("localhost","root","");
+if(!$con)
+{
+echo 'not connected to server';
+}
+if(!mysqli_select_db($con,'showcase'))
+{
+echo 'database not connected';
+}
+$name=$_POST["name"];
+$PASSWORD = $_POST['pwd'];
+
+
+$sql = "select * from club where name='$name' and password='$PASSWORD'";
+$run_query=mysqli_query($con,$sql);
+$arrayq=mysqli_fetch_assoc($run_query);
+if($arrayq['name']==null)
+{
+echo "Invalid Username or Password";
+header("refresh:2; url=sc.html");
+} 
+else
+
+
+{
+setcookie("name",$name, time() + (86400 * 1), "/");
+header("refresh:2; url=profilec.php");
+}
+?>
