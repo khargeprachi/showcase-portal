@@ -1,0 +1,30 @@
+<?php
+$con = mysqli_connect("localhost","root","");
+if(!$con)
+{
+echo 'not connected to server';
+}
+if(!mysqli_select_db($con,'showcase'))
+{
+echo 'database not connected';
+}
+$Fullname = $_POST["name"];
+$PASSWORD = $_POST['pwd'];
+$Regno = $_POST['regno'];
+$Contact = $_POST['contact'];
+$Specialization = $_POST['sp'];
+$Email = $_POST['email'];
+
+$sql = "INSERT INTO student(Fullname,PASSWORD,Regno,Contact,Specialization, Email) VALUES('$Fullname','$PASSWORD','$Regno','$Contact','$Specialization','$Email')";
+setcookie("regno",$Regno, time() + (86400 * 1), "/");
+if(!mysqli_query($con,$sql))
+{
+echo 'not inserted';
+}
+else
+{
+echo 'inserted';
+}
+header("refresh:2; url=profile.php");
+
+?>
