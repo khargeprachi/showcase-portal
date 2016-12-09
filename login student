@@ -1,0 +1,28 @@
+<?php
+$con = mysqli_connect("localhost","root","");
+if(!$con)
+{
+echo 'not connected to server';
+}
+if(!mysqli_select_db($con,'showcase'))
+{
+echo 'database not connected';
+}
+$Regno=$_POST["regno"];
+$PASSWORD = $_POST['pwd'];
+
+
+$sql = "select * from student where Regno='$Regno' and PASSWORD='$PASSWORD'";
+$run_query=mysqli_query($con,$sql);
+$arrayq=mysqli_fetch_assoc($run_query);
+if($arrayq['Regno']==null)
+{
+echo "Invalid Username or Password";
+header("refresh:2; url=sc.html");
+} 
+else
+{
+setcookie("regno",$Regno, time() + (86400 * 1), "/");
+header("refresh:2; url=profile.php");
+}
+?>
